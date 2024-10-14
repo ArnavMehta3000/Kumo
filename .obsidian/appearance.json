@@ -1,4 +1,7 @@
 {
   "cssTheme": "Rosé Pine",
-  "theme": "obsidian"
+  "theme": "obsidian",
+  "monospaceFontFamily": "JetBrainsMono Nerd Font",
+  "textFontFamily": "Maple Mono NF",
+  "baseFontSizeAction": true
 }
