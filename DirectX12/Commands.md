@@ -1,0 +1,3 @@
+- The GPU has a *command queue*
+- The CPU submits commands to the queue using a *command list*
+- Once a set of commands are submitted to the GPU 

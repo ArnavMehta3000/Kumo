@@ -3,5 +3,6 @@
   "theme": "obsidian",
   "monospaceFontFamily": "JetBrainsMono Nerd Font",
   "textFontFamily": "Maple Mono NF",
-  "baseFontSizeAction": true
+  "baseFontSizeAction": true,
+  "baseFontSize": 16
 }
