@@ -1,5 +1,10 @@
 [
   "obsidian-git",
   "obsidian-excalidraw-plugin",
-  "emoji-shortcodes"
+  "emoji-shortcodes",
+  "calendar",
+  "editor-width-slider",
+  "dataview",
+  "obsidian-tasks-plugin",
+  "omnisearch"
 ]
