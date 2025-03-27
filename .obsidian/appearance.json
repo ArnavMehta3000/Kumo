@@ -1,7 +1,7 @@
 {
   "cssTheme": "Tokyo Night",
   "theme": "obsidian",
-  "monospaceFontFamily": "JetBrainsMono Nerd Font",
+  "monospaceFontFamily": "Spleen,JetBrainsMono Nerd Font",
   "textFontFamily": "Maple Mono NF",
   "baseFontSizeAction": true,
   "baseFontSize": 16
