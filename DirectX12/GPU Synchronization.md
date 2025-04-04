@@ -12,6 +12,9 @@
 - The application must also track a **fence value** that is used to signal the fence
 
 # Command List
+
+^dc7a1c
+
 - A command list is used to issue copy, compute (dispatch) and draw commands
 - In DX12 commands are issued to the **command list** but are *not* executed immidiately
 	- All commands in DX12 are deferred -> the commands in a command list are only run on the GPU after they have been executed on the command queue
@@ -57,3 +60,13 @@ end method
 	1. **Copy**: Can be used to issue commands to copy resource data (CPU -> GPU, GPU -> GPU, GPU -> CPU).
 	2. **Compute**: Can do everything a **Copy** queue can do and issue compute (dispatch) commands.
 	3. **Direct**: Can do everything a **Copy** and a **Compute** queue can do and issue draw commands.
+
+# Command Allocators
+- A command allocator is the backing memory used by a Command List
+- When creating a command allocator, the type must be specified
+- It provides no functionality and must only be accessed indirectly through a command list
+- A command allocator can only be used by a single command list at a time
+	- It can be reused after the command that were recorded into the command list have finished executing **on the GPU**
+	- A fence can be used to check if a the GPU commands have finished executing on the GPU
+- The memory allocated by the command allocator is reclaimed using the `Reset` function
+- In order to achieve maximum frame-rates for the application, one command allocator per “in-flight” command list should be created.
