@@ -1,5 +1,5 @@
 - During rendering the GPU will read/write to resources (e.g. back buffer/depth buffer).
-- Before rendering we have to *bind* or *link* the resources to the rendering pipeline that are going to be referenced in the fraw call. However GPU resources are not bound directly.
+- Before rendering we have to *bind* or *link* the resources to the rendering pipeline that are going to be referenced in the frame call. However GPU resources are not bound directly.
 - Instead, a resource is referenced through a *descriptor* object, which can be thought of as a lightweight structure that describes the resource to the GPU.
 - It behaves like a level of **indirection**. Given a descriptor, the GPU can get the actual resource data and know the required information about it.
 - Binding resources is done via descriptors.
@@ -19,7 +19,7 @@
 - **SRV Descriptors** describe depth/stencil resources
 
 # Descriptor Heap
-- Descriptor heaps is an array of descriptors. It is the memory backing for all the descriptors of a particular type your application uses
+- Descriptor heaps are array of descriptors. It is the memory backing for all the descriptors of a particular type your application uses
 - We need a separate type of descriptor heap for each type of descriptor
 	- SRV gets its own heap, RTV gets its own heap and so on...
 - Multiple heaps of the same type are also allowed
