@@ -10,15 +10,18 @@
 > A *view* is a synonym for a *descriptor*. Example a *constant buffer view* and *constant buffer descriptor* mean the same thing
 
 # Descriptors in DX12
+
 - Descriptors have a type, and the type implies implies how the resource will be used.
 
 ## Types of Descriptors
+
 - **CBV/SRV/RTV** descriptors describe constant buffers, shader resources and unordered access views.
 - **Sampler Descriptors** describe sampler resources used in texturing.
 - **RTV Descriptors** describe render target resources
 - **SRV Descriptors** describe depth/stencil resources
 
 # Descriptor Heap
+
 - Descriptor heaps are array of descriptors. It is the memory backing for all the descriptors of a particular type your application uses
 - We need a separate type of descriptor heap for each type of descriptor
 	- SRV gets its own heap, RTV gets its own heap and so on...

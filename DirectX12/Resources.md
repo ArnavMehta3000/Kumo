@@ -5,6 +5,7 @@
 	- Reserved Heap
 
 ## Committed Resources
+
 - A committed resource is created using the `ID3D12Device::CreateCommittedResource` function
 	- This function creates both the resource and the implicit heap that is large enough to hold the resource
 	- The resource is also mapped to the heap
@@ -12,6 +13,7 @@
 - These resources are ideal for allocated large resources like textures or statically sized resources (the size of the resource does not change)
 - The are also commonly used to create large resource in an upload heap  that can be used for uploading dynamic vertex/index buffers (e.g. ImGui)
 ## Placed Resource
+
 - A places resource is explicitly placed in a heap at a specific offset within the heap
 - Before a placed resource can be created, a heap is created using `ID3D12Dvice::CreateHeap`
 - The placed resource is then created inside that heap using the `ID3D12Device::CreatePlacedResource`
@@ -24,6 +26,7 @@
 - Depending on the GPU architecture, the type of resource that you can allocate within a particular heap may be limited
 	- For example, buffer resources (vertex buffer, index buffer, constant buffer, structure buffer, etc..) can only be placed in a heap that was created with the `[ALLOW_ONLY_BUFFERS]` heap flag. Render target and depth/stencil resources can only be placed in a heap that was created with the `[ALLOW_ONLY_RT_DS_TEXTURES]` heap flag. Non render target textures can only be placed in a heap that was created with the `[ALLOW_ONLY_NON_RT_DS_TEXTURES]` heap flag. Adapters that support [heap tier 2](https://msdn.microsoft.com/en-us/library/dn986743\(v=vs.85\).aspx) and higher can create heaps using the `[ALLOW_ALL_BUFFERS_AND_TEXTURES]` heap flag to allow any resource type to be placed within that heap. Since the heap tier is dependent on the GPU architecture, most applications will probably be written assuming only [heap tier 1](https://msdn.microsoft.com/en-us/library/dn986743\(v=vs.85\).aspx#D3D12_RESOURCE_HEAP_TIER_1) support
 ## Reserved Resources
+
 - Reserved Resources are created without specifying a heap to place the resource in
 - Reserved Resources are created using the `ID3D12Device::CreateReservedResource` function
 - before a reserved resource can be used, it must be mapped to a heap using a `ID3D12CommandQueue::UpdateTileMappings` function
@@ -31,6 +34,7 @@
 - Very useful for rendering techniques that use sparse voxel octrees without exceeding GPU memory budgets
 
 # Pipeline State Objects (PSO's)
+
 - The PSO contains most of the state that is required to configure the rendering (or compute) pipeline. It contains the following information
 	- Shader (VS/PS/DS/HS/GS)
 	- Input layout
@@ -56,6 +60,7 @@
 	- Primitive topology and adjacency information
 
 # Root Signature
+
 - A root signature is similar to a C++ function signature
 	- It defines the parameters that are passed to the shader pipeline
 - The values that are bound to pipeline are called **root arguments**
@@ -66,6 +71,7 @@
 - The root parameters in the root signature not only define the type of the parameters that are expected in the shader, they also define the shader registers and register spaces to bind the arguments to in the shader.
 
 ## Shader Register and Register Spaces
+
 - Shader parameters must be bound to a register
 - E.g. 
 	- Constant buffers are bound to `b` registers (`b0` to `bN`)
@@ -79,6 +85,7 @@
 > **IT IS VERY IMPORTANT TO UNDERSTAND THE SHADER REGISTER AND REGISTER SPACE overlapping rules**
 
 ## Root Signature Parameters
+
 - A root signature can contain any number of parameters. They are one of the following types:
 	- `D3D12_ROOT_PARAMTER_TYPE_32BIT_CONSTANTS`: 32-bit root constants
 	- `D3D12_ROOT_PARAMETER_TYPE_CBV`: Inline CBV descriptor
@@ -87,9 +94,11 @@
 	- `D3D12_ROOT_PARAMETER_TYPE_DESCRIPTOR_TABLE`: Descriptor table
 
 ### 32-Bit Constants
+
 - Constant buffer data can be passed to the shader without the need to create a constant buffer resource by using 32-bit constants
 	- Dynamic indexing into the constant buffer data is not supported for constant data that is stored in the root signature space
 ### Inline Descriptors
+
 - Descriptors can be placed directly in the root signature without requiring a descriptor heap
 - Only CBV and buffer resources (SRV, UAV) resources containing 32-bit (`float`, `uint` or `sint`) components can be accessed using inline descriptors in the root signature. Inline UAV descriptors for buffer resources cannot contain counters
-	- 
+	- E.g. If a `RWStructuredBuffer` contains a counter resource
