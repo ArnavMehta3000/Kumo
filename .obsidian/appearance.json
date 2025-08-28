@@ -1,8 +1,8 @@
 {
-  "cssTheme": "Tokyo Night",
+  "cssTheme": "Rosé Pine",
   "theme": "obsidian",
-  "monospaceFontFamily": "Spleen,JetBrainsMono Nerd Font",
-  "textFontFamily": "Maple Mono NF",
+  "monospaceFontFamily": "Maple Mono NF,JetBrainsMono Nerd Font",
+  "textFontFamily": "JetBrainsMono Nerd Font,Maple Mono NF",
   "baseFontSizeAction": true,
   "baseFontSize": 19
 }
