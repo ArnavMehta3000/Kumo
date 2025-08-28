@@ -1,3 +1,8 @@
+---
+tags:
+  - "#DirectX12"
+---
+
 - Several resources are required to render scenes, we as the programmer must decide how those buffer resources are created
 - There are several different way that GPU resources are allocated within a heap memory (`ID3D12Heap`)
 	- Committed Heap

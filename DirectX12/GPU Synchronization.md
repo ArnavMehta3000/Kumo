@@ -1,3 +1,8 @@
+---
+tags:
+  - "#DirectX12"
+---
+
 - GPU and CPU need to be synchronized in DX12 unlike in DX11 where that is handled by the drivers
 - It is very important when performing resource management
 	- Resources cannot be freed if they are currently being referenced in a command list that is being executed on the command queue

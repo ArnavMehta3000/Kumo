@@ -1,3 +1,8 @@
+---
+tags:
+  - DirectX12
+---
+
 ## Signal
 
 - Means - GPU says "I'm done up to here"

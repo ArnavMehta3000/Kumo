@@ -1,3 +1,8 @@
+---
+tags:
+  - "#DirectX12"
+---
+
 - During rendering the GPU will read/write to resources (e.g. back buffer/depth buffer).
 - Before rendering we have to *bind* or *link* the resources to the rendering pipeline that are going to be referenced in the frame call. However GPU resources are not bound directly.
 - Instead, a resource is referenced through a *descriptor* object, which can be thought of as a lightweight structure that describes the resource to the GPU.
