@@ -4,12 +4,12 @@ tags:
   - "#Unity/Rendering"
   - Unity/RenderGraph
 ---
-# References
-- [Introduction to URP for advanced creators (Book PDF) | Unity](https://unity.com/resources/introduction-to-urp-advanced-creators-unity-6)
- 
+> [!References]
+> - [Introduction to URP for advanced creators (Book PDF) | Unity](https://unity.com/resources/introduction-to-urp-advanced-creators-unity-6)
+
 # Main Principles of a Render Graph
 1. You no longer handle resources directly; instead, you use render graph system-specific handles. All RenderGraph APIs use these handles to manipulate resources. The resource types a render graph manages are `RTHandles`, `ComputeBuffers`, and `RendererLists`
-2. Actual resource references are only accessible within the execution code of a render pass
+2. Actual resource references are *only* accessible within the execution code of a render pass
 3. The framework requires an explicit declaration of render passes. Each render pass must state which resources it reads from and/or writes to
 4. There is no persistence between each execution of a render graph. This means that the resources you create inside one execution of the render graph don’t carry over to the next execution
 5. For resources that need persistence (e.g., from one frame to another), you can create them outside of a render graph, like regular resources, and import them. They behave like any other render graph resource in terms of dependency tracking, but the graph does not handle their lifetime
