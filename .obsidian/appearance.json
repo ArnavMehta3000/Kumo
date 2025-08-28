@@ -3,6 +3,8 @@
   "theme": "obsidian",
   "monospaceFontFamily": "Maple Mono NF,JetBrainsMono Nerd Font",
   "textFontFamily": "JetBrainsMono Nerd Font,Maple Mono NF",
+  "monospaceFontFamily": "JetBrainsMono Nerd Font,Maple Mono NF",
+  "textFontFamily": "Maple Mono NF,JetBrainsMono Nerd Font",
   "baseFontSizeAction": true,
   "baseFontSize": 19
 }
