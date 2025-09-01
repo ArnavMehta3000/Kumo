@@ -34,3 +34,12 @@ The execution of a render graph is a 3 step process that happens every frame bec
 ## Execution
 - The render graph executes all the passes that it did not cull, in declaration order
 - Resources are created and destroyed as needed
+
+
+# `TextureHandle` vs `RTHandle`
+Textures are referenced with different types in different stages of rendering.
+A texture handle identifies a certain frame resource during the recording stage. However, this frame resource does not have any memory allocated to it yet. The render graph will analyze the passes after the recording stage and decide how to allocate the memory (i.e., a `RTHandle`).
+During the execution stage, a `TextureHandle` will reference an actual resource allocated in memory
+
+- A `TextureHandle` is a resource containing a `RTHandle`
+- A `TextureHandle` can be implicitly casted as `RTHandle` (this cannot be used in recording stage tho)
